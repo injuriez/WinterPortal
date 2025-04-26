@@ -28,18 +28,31 @@ myGui.SetFont("cFFFFFF")
 myGui.SetFont("s10 Bold", "Karla")
 
 ; SLOT 1
-BACKGROND := myGui.Add("Text", "x-16 y0 w1620 h23 Background1a1a1a", "")
+BACKGROND := myGui.Add("Text", "x-16 y0 w1420 h23 Background1a1a1a", "")
+fakebackground := myGui.Add("Text", "x-16 y0 w2000 h25 Background1a1a1a", "") ; Make width shorter to not overlap with close button
 
+
+; topbar ----------------------------------
+minimizeButton := myGui.Add("Picture", "x1600 y3 w20 h20 0x6 +BackgroundTrans", A_ScriptDir . "\Images\mini.png")
+minimizeButton.OnEvent("Click", (*) => myGui.Minimize()) ; Minimize the GUI
+closeButton := myGui.Add("Picture", "x1560 y3 w20 h20 0x6 +BackgroundTrans", A_ScriptDir . "\Images\close.png")
+closeButton.OnEvent("Click", ExitHandler)
 ; Center the logo and text in the 1600px wide window
 MangoLogo := myGui.Add("Picture", "x780 y-2 w29 h25 0x6 +BackgroundTrans", A_ScriptDir . "\mango.png")
 BACKGROND_TEXT := myGui.Add("Text", "x800 y2 w120 h20 +BackgroundTrans +Center cFFFFFF", "MangoGuards (Custom Placement)")
 BACKGROND_TEXT.SetFont("s10 Bold", "Karla")
+ExitHandler(*) {
+    myGui.Destroy()
+    ExitApp
+}
 BACKGROND.OnEvent("Click", DragWindow)
 MangoLogo.OnEvent("Click", DragWindow)
 BACKGROND_TEXT.OnEvent("Click", DragWindow)
 DragWindow(*) {
     PostMessage(0xA1, 2,,, myGui)  
 }
+
+
 
 ; SLOT 1 (removed upgrade dropdown)
 myGui.Add("GroupBox", "x48 y40 w228 h298", "SLOT 1")

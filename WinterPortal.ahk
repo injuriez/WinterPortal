@@ -11,9 +11,8 @@ ui := myGui.Add("Progress", "x256 y32 w800 h602 -Smooth c0x7e4141", 100)
 WinSetTransColor("0x7e4141 255", myGui)
 myGui.SetFont(, "Segoe UI")
 myGui.Add("GroupBox", "x1068 y40 w210 h50 cFFFFFF", "Version")
-VersionText := myGui.Add("Text", "x1075 y62 w180 h25 +Center cFFFFFF", "v1.0.0")
+VersionText := myGui.Add("Text", "x1075 y62 w180 h25 +Center cFFFFFF", "v1.0.2")
 myGui.Add("GroupBox", "x1068 y40 w210 h50 cFFFFFF", "Version")
-VersionText := myGui.Add("Text", "x1075 y62 w180 h25 +Center cFFFFFF", "v1.0.0")
 
 ; Move Activity Log to the right side
 myGui.Add("GroupBox", "x1068 y100 w210 h160 cFFFFFF", "Activity Log")
@@ -96,9 +95,9 @@ ButtonSettings := myGui.Add("Button", "x1068 y600 w210 h30 cFFFFFF", "Settings")
 BACKGROND := myGui.Add("Text", "x-16 y0 w1256 h25 Background1a1a1a", "") ; Make width shorter to not overlap with close button
 fakebackground := myGui.Add("Text", "x-16 y0 w2000 h25 Background1a1a1a", "") ; Make width shorter to not overlap with close button
 ; topbar ----------------------------------
-minimizeButton := myGui.Add("Picture", "x1230 y3 w20 h20 0x6 +BackgroundTrans", A_ScriptDir . "\mini.png")
+minimizeButton := myGui.Add("Picture", "x1230 y3 w20 h20 0x6 +BackgroundTrans", A_ScriptDir . "\libs\UIPARTS\Images\mini.png")
 minimizeButton.OnEvent("Click", (*) => myGui.Minimize()) ; Minimize the GUI
-closeButton := myGui.Add("Picture", "x1260 y3 w20 h20 0x6 +BackgroundTrans", A_ScriptDir . "\close.png")
+closeButton := myGui.Add("Picture", "x1260 y3 w20 h20 0x6 +BackgroundTrans", A_ScriptDir . "\libs\UIPARTS\Images\close.png")
 closeButton.OnEvent("Click", ExitHandler)
 
 
@@ -108,7 +107,7 @@ ExitHandler(*) {
     Sleep(200)  ; Give a moment for the log to update
     ExitApp()   ; Completely terminate the script
 }
-MangoLogo := myGui.Add("Picture", "x584 y-2 w29 h25 0x6 +BackgroundTrans", A_ScriptDir . "\mango.png")
+MangoLogo := myGui.Add("Picture", "x584 y-2 w29 h25 0x6 +BackgroundTrans", A_ScriptDir . "\libs\UIPARTS\Images\mango.png")
 BACKGROND_TEXT := myGui.Add("Text", "x616 y2 w91 h20  +BackgroundTrans +Center cFFFFFF", "MangoGuards")
 BACKGROND_TEXT.SetFont("s10 Bold", "Karla")
 BACKGROND.OnEvent("Click", DragWindow)
@@ -121,7 +120,7 @@ DragWindow(*) {
 
 myGui.Add("GroupBox", "x8 y40 w238 h50 cFFFFFF", "Party")
 PartyText := myGui.Add("Text", "x20 y64 w210 h25 +Center cFFFFFF", "Not Connected")
-myGui.Add("Text", "x0 y648 w1308 h70 +Center cFFFFFF", "Winter Portal v1.0 - Made by Mango")
+myGui.Add("Text", "x0 y648 w1308 h70 +Center cFFFFFF", "Winter Portal - Made by Mango")
 ButtonSettings.OnEvent("Click", OpenSettings)
 myGui.OnEvent('Close', (*) => ExitApp())
 myGui.Title := "Mango"
