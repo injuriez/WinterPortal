@@ -1,1 +1,13 @@
-
+{
+    "Name": "Placeholder",
+    "Description": "...",
+    "Author": "Placeholder",
+    "Version": "1.0",
+    "Image": "https://i.ibb.co/sJQ64RKb/Special-Enchants.webp",
+    "Tags": {
+        "Resolution": "Full Res Support",
+        "Type": "AHK"
+    },
+    "Main": "Main.ahk",
+    "MangoID": "Placeholder5"
+}
